@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>用户注册</title>
+		<link rel="stylesheet" type="text/css" href="font/font_svcu02nytc/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="style/public.css" />
+		<style>
+			/* 注册页特有样式 */
+			.register-container {
+				max-width: 500px;
+				margin: 30px auto;
+				padding: 30px;
+				background-color: #fff;
+				border-radius: 5px;
+				box-shadow: 0 0 10px rgba(0,0,0,0.1);
+			}
+			
+			.register-title {
+				text-align: center;
+				margin-bottom: 30px;
+				font-size: 24px;
+				color: #333;
+			}
+			
+			.form-group {
+				margin-bottom: 20px;
+			}
+			
+			.form-group label {
+				display: block;
+				margin-bottom: 8px;
+				font-weight: bold;
+			}
+			
+			.form-control {
+				width: 100%;
+				padding: 10px;
+				border: 1px solid #ddd;
+				border-radius: 4px;
+				font-size: 16px;
+			}
+			
+			.btn {
+				display: block;
+				width: 100%;
+				padding: 12px;
+				background-color: #1e88e5;
+				color: white;
+				border: none;
+				border-radius: 4px;
+				font-size: 16px;
+				cursor: pointer;
+				transition: background-color 0.3s;
+			}
+			
+			.btn:hover {
+				background-color: #1565c0;
+			}
+			
+			.register-footer {
+				margin-top: 20px;
+				text-align: center;
+			}
+			
+			.register-footer a {
+				color: #1e88e5;
+				text-decoration: none;
+			}
+			
+			.register-footer a:hover {
+				text-decoration: underline;
+			}
+			
+			.error-message {
+				color: #f44336;
+				font-size: 14px;
+				margin-top: 5px;
+				display: none;
+			}
+			
+			.password-strength {
+				height: 5px;
+				background-color: #eee;
+				margin-top: 10px;
+				border-radius: 3px;
+				overflow: hidden;
+			}
+			
+			.strength-bar {
+				height: 100%;
+				width: 0;
+				transition: width 0.3s, background-color 0.3s;
+			}
+			
+			.terms {
+				margin-bottom: 20px;
+				font-size: 14px;
+			}
+			
+			.terms input {
+				margin-right: 8px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="head">
+			<div class="header">
+				<div class="container">
+					<div class="logo"><a href="index.html"><img src="image/logoblack.png" ></a></div>
+					<ul class="titlelist">
+						<li><a href="index.html">作品</a></li>
+						<li><a href="liao.html">社区</a></li>
+						<li><a href="activity.html">活动</a></li>
+						<li><a href="#">图库</a></li>
+					</ul>
+					<div class="dengru">
+						<div><a href="login.html">登入</a></div>
+						<div><a href="register.html">注册</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="centerbox">
+			<div class="container">
+				<div class="register-container">
+					<h2 class="register-title">创建新账号</h2>
+					<form id="registerForm">
+						<div class="form-group">
+							<label for="username">用户名</label>
+							<input type="text" id="username" class="form-control" placeholder="请输入用户名(4-16位字母或数字)" required>
+							<div id="usernameError" class="error-message">用户名必须是4-16位字母或数字</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="email">电子邮箱</label>
+							<input type="email" id="email" class="form-control" placeholder="请输入电子邮箱" required>
+							<div id="emailError" class="error-message">请输入有效的电子邮箱</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="password">密码</label>
+							<input type="password" id="password" class="form-control" placeholder="请输入密码(至少6位)" required>
+							<div class="password-strength">
+								<div id="strengthBar" class="strength-bar"></div>
+							</div>
+							<div id="passwordError" class="error-message">密码长度至少6位</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="confirmPassword">确认密码</label>
+							<input type="password" id="confirmPassword" class="form-control" placeholder="请再次输入密码" required>
+							<div id="confirmPasswordError" class="error-message">两次输入的密码不一致</div>
+						</div>
+						
+						<div class="terms">
+							<input type="checkbox" id="agreeTerms" required>
+							<label for="agreeTerms">我已阅读并同意<a href="#">用户协议</a>和<a href="#">隐私政策</a></label>
+							<div id="termsError" class="error-message">请同意用户协议和隐私政策</div>
+						</div>
+						
+						<button type="submit" class="btn">注 册</button>
+						
+						<div class="register-footer">
+							<span>已有账号?</span>
+							<a href="login.html">立即登录</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<div class="footer">
+			<div class="container">
+				<div class="footer-yi">
+					<h3><img src="image/logoblack.png" ></h3>
+					<div>
+						<p>以摄影爱好者为核心的图片分享社区,</p>
+						<p>汇照海量原创影像,是国内极具影响力的摄影文化交流平台。</p>
+						<p>本项目本人毕业设计</p>
+					</div>
+				</div>
+				<div class="footer-er">
+					<div>
+						<h3>关注我们</h3>
+						<ul>
+							<li><a href="#"><i class="iconfont icon-weibo"></i></a></li>
+							<li><a href="#"><i class="iconfont icon-weixin"></i></a></li>
+						</ul>
+					</div>
+					<div>
+						<h3>APP下载</h3>
+						<img src="image/qqimg.png" >
+					</div>
+					<div>
+						<div><a href="#"><i class="iconfont icon-pingguo"></i><span>iPhoen下载</span></a></div>
+						<div><a href="#"><i class="iconfont icon-android-fill"></i><span>Android下载</span></a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript" src="script/jquery-3.4.1.min.js"></script>
+		<script>
+			$(document).ready(function() {
+				// 密码强度检测
+				$('#password').on('input', function() {
+					const password = $(this).val();
+					let strength = 0;
+					
+					// 长度评分
+					if (password.length > 0) strength += 1;
+					if (password.length >= 6) strength += 1;
+					if (password.length >= 10) strength += 1;
+					
+					// 复杂度评分
+					if (/[A-Z]/.test(password)) strength += 1;
+					if (/[0-9]/.test(password)) strength += 1;
+					if (/[^A-Za-z0-9]/.test(password)) strength += 1;
+					
+					// 更新强度条
+					const $bar = $('#strengthBar');
+					let width = 0;
+					let color = '#f44336'; // 红色
+					
+					if (strength <= 2) {
+						width = 33;
+					} else if (strength <= 4) {
+						width = 66;
+						color = '#ff9800'; // 橙色
+					} else {
+						width = 100;
+						color = '#4caf50'; // 绿色
+					}
+					
+					$bar.css({
+						'width': width + '%',
+						'background-color': color
+					});
+				});
+				
+				// 表单验证
+				$('#registerForm').submit(function(e) {
+					e.preventDefault();
+					
+					let isValid = true;
+					const username = $('#username').val().trim();
+					const email = $('#email').val().trim();
+					const password = $('#password').val().trim();
+					const confirmPassword = $('#confirmPassword').val().trim();
+					const agreeTerms = $('#agreeTerms').is(':checked');
+					
+					// 验证用户名
+					if (username === '') {
+						$('#usernameError').text('请输入用户名').show();
+						isValid = false;
+					} else if (!/^[a-zA-Z0-9]{4,16}$/.test(username)) {
+						$('#usernameError').text('用户名必须是4-16位字母或数字').show();
+						isValid = false;
+					} else {
+						$('#usernameError').hide();
+					}
+					
+					// 验证邮箱
+					if (email === '') {
+						$('#emailError').text('请输入电子邮箱').show();
+						isValid = false;
+					} else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+						$('#emailError').text('请输入有效的电子邮箱').show();
+						isValid = false;
+					} else {
+						$('#emailError').hide();
+					}
+					
+					// 验证密码
+					if (password === '') {
+						$('#passwordError').text('请输入密码').show();
+						isValid = false;
+					} else if (password.length < 6) {
+						$('#passwordError').text('密码长度至少6位').show();
+						isValid = false;
+					} else {
+						$('#passwordError').hide();
+					}
+					
+					// 验证确认密码
+					if (confirmPassword === '') {
+						$('#confirmPasswordError').text('请再次输入密码').show();
+						isValid = false;
+					} else if (password !== confirmPassword) {
+						$('#confirmPasswordError').text('两次输入的密码不一致').show();
+						isValid = false;
+					} else {
+						$('#confirmPasswordError').hide();
+					}
+					
+					// 验证用户协议
+					if (!agreeTerms) {
+						$('#termsError').show();
+						isValid = false;
+					} else {
+						$('#termsError').hide();
+					}
+					
+					// 如果验证通过，模拟注册成功
+					if (isValid) {
+						alert('注册成功！即将跳转到登录页');
+						window.location.href = 'login.html';
+						
+						// 在实际项目中，这里会发送数据到服务器
+						// const userData = {
+						//     username: username,
+						//     email: email,
+						//     password: password
+						// };
+						// $.post('/api/register', userData, function(response) {
+						//     // 处理响应
+						// });
+					}
+				});
+			});
+		</script>
+	</body>
+</html>
