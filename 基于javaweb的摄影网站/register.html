@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- 头部内容与login.html相同 -->
+    <title>用户注册</title>
+</head>
+<body>
+    <!-- 导航部分与login.html相同 -->
+    
+    <div class="centerbox">
+        <div class="container">
+            <div class="login-container">
+                <h2 class="login-title">用户注册</h2>
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="username">用户名</label>
+                        <input type="text" id="username" class="form-control" placeholder="请输入用户名" required>
+                        <div id="usernameError" class="error-message">用户名至少4位</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">电子邮箱</label>
+                        <input type="email" id="email" class="form-control" placeholder="请输入邮箱" required>
+                        <div id="emailError" class="error-message">请输入有效的邮箱地址</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">密码</label>
+                        <input type="password" id="password" class="form-control" placeholder="请输入密码" required>
+                        <div id="passwordError" class="error-message">密码长度至少6位</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">确认密码</label>
+                        <input type="password" id="confirmPassword" class="form-control" placeholder="请再次输入密码" required>
+                        <div id="confirmError" class="error-message">两次密码不一致</div>
+                    </div>
+                    
+                    <button type="submit" class="btn">注 册</button>
+                    
+                    <div class="login-footer">
+                        <span>已有账号?</span>
+                        <a href="login.html">立即登录</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 页脚部分与login.html相同 -->
+    
+    <script>
+        // 添加注册表单的验证逻辑
+        $(document).ready(function() {
+            $('#registerForm').submit(function(e) {
+                e.preventDefault();
+                
+                let isValid = true;
+                const username = $('#username').val().trim();
+                const email = $('#email').val().trim();
+                const password = $('#password').val().trim();
+                const confirmPassword = $('#confirmPassword').val().trim();
+                
+                // 验证用户名
+                if (username.length < 4) {
+                    $('#usernameError').text('用户名至少4位').show();
+                    isValid = false;
+                } else {
+                    $('#usernameError').hide();
+                }
+                
+                // 验证邮箱
+                if (!/^\w+@\w+\.\w+$/.test(email)) {
+                    $('#emailError').show();
+                    isValid = false;
+                } else {
+                    $('#emailError').hide();
+                }
+                
+                // 验证密码
+                if (password.length < 6) {
+                    $('#passwordError').show();
+                    isValid = false;
+                } else {
+                    $('#passwordError').hide();
+                }
+                
+                // 验证确认密码
+                if (password !== confirmPassword) {
+                    $('#confirmError').show();
+                    isValid = false;
+                } else {
+                    $('#confirmError').hide();
+                }
+                
+                if (isValid) {
+                    alert('注册成功！即将跳转到登录页');
+                    window.location.href = 'login.html';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
